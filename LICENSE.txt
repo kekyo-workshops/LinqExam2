@@ -12,3 +12,11 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+----------------------
+
+x_ken_all.csv:
+
+This material originality distributed by Japan post group.  http://www.post.japanpost.jp/zipcode/download.html
+Secondary converted by zipcloud.   http://zipcloud.ibsnet.co.jp/  (ken-all201608.zip)
+Thirdary converted by Kouji Matsui.   https://github.com/kekyo/LegacyShiftJISToUTF8
