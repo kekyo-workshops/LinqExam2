@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqExam2", "LinqExam2\LinqExam2.csproj", "{C07A3E49-7F77-43DE-8ECE-078D06F24E9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BF04514B-BEDF-4BDA-8D18-C952DA3BC50A}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE.txt = LICENSE.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C07A3E49-7F77-43DE-8ECE-078D06F24E9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C07A3E49-7F77-43DE-8ECE-078D06F24E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C07A3E49-7F77-43DE-8ECE-078D06F24E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C07A3E49-7F77-43DE-8ECE-078D06F24E9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
