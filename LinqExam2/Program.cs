@@ -59,6 +59,7 @@ namespace LinqExam2
         }
         #endregion
 
+        #region TestJoin
         private static void TestJoin()
         {
             var x_ken_all = new TextFieldContext("x_ken_all.csv");
@@ -74,10 +75,26 @@ namespace LinqExam2
             Console.WriteLine(string.Join("\r\n", results));
         }
 
+        private static void TestJoinUseMethod()
+        {
+            var x_ken_all = new TextFieldContext("x_ken_all.csv");
+
+            // 01101,"064  ","0640941","ホッカイドウ","サッポロシチュウオウク","アサヒガオカ","北海道","札幌市中央区","旭ケ丘",0,0,1,0,0,0
+            var ids = new[] {8102, 50302, 62924, 72962};
+            var results = x_ken_all.Join(
+                ids,
+                columns => int.Parse(columns[1]),
+                id => id,
+                (columns, id) => $"{columns[2]}, {columns[6]}{columns[7]}{columns[8]}");
+
+            Console.WriteLine(string.Join("\r\n", results));
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //TestSample();
-            TestJoin();
+            TestJoinUseMethod();
         }
     }
 }
