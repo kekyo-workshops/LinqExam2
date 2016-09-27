@@ -105,11 +105,73 @@ namespace LinqExam2
         }
         #endregion
 
+        #region TestGroupBy()
+        private static void TestGroupBy()
+        {
+            var x_ken_all = new TextFieldContext("x_ken_all.csv");
+
+            // 01101,"064  ","0640941","ホッカイドウ","サッポロシチュウオウク","アサヒガオカ","北海道","札幌市中央区","旭ケ丘",0,0,1,0,0,0
+            var results =
+                from columns in x_ken_all
+                group columns by int.Parse(columns[1])
+                into g
+                select new
+                {
+                    ID = (int)g.Key,
+                    Infos = (IEnumerable<string>)g.Select(
+                        columns => $"{columns[2]}, {columns[6]}{columns[7]}{columns[8]}")
+                };
+
+            Console.WriteLine(string.Join(
+                "\r\n",
+                results.Select(entry =>
+                    string.Format("ID={0},\r\n  {1}",
+                        entry.ID,
+                        string.Join("\r\n  ", entry.Infos)))));
+        }
+
+        private static void TestGroupByUseMethod()
+        {
+            var x_ken_all = new TextFieldContext("x_ken_all.csv");
+
+            // 01101,"064  ","0640941","ホッカイドウ","サッポロシチュウオウク","アサヒガオカ","北海道","札幌市中央区","旭ケ丘",0,0,1,0,0,0
+            var results = x_ken_all.GroupBy(
+                columns => int.Parse(columns[1]),
+                columns => columns).
+                Select(g =>
+                    new {
+                        ID = (int)g.Key,
+                        Infos = (IEnumerable<string>)g.Select(
+                            columns => $"{columns[2]}, {columns[6]}{columns[7]}{columns[8]}")
+                    });
+
+            Console.WriteLine(string.Join(
+                "\r\n",
+                results.Select(entry =>
+                    string.Format("ID={0},\r\n  {1}",
+                        entry.ID,
+                        string.Join("\r\n  ", entry.Infos)))));
+        }
+
+        private static void TestGroupByNoMap()
+        {
+            var x_ken_all = new TextFieldContext("x_ken_all.csv");
+
+            // 01101,"064  ","0640941","ホッカイドウ","サッポロシチュウオウク","アサヒガオカ","北海道","札幌市中央区","旭ケ丘",0,0,1,0,0,0
+            IEnumerable<IGrouping<int, string[]>> results =
+                x_ken_all.GroupBy(
+                    columns => int.Parse(columns[1]),
+                    columns => columns);
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //TestSample();
             //TestJoinUseMethod();
-            TestJoinUseContainsBruteForce();
+            //TestJoinUseContainsBruteForce();
+            //TestGroupBy();
+            TestGroupByUseMethod();
         }
     }
 }
